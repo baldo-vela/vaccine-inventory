@@ -10,6 +10,7 @@ class ApplicationController < Sinatra::Base
         path: '/',
         expire_after: 14400,
         secret: '*&(^B234'
+        
     set :public_folder, 'public'
     set :views, 'app/views'
     set :session_secret, ENV['SESSION_SECRET']

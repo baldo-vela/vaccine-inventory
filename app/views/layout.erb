@@ -24,11 +24,11 @@
         <a href="/" class="brand-logo">COVID-19 Vaccinations</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if !is_logged_in? %>
-            <li><a href="/login">Login</a></li>
+            <li><a href="users/login">Login</a></li>
             <li><a href="users/signup">Signup</a></li>
           <% else %>
             <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
-            <li><a href="/logout">Logout</a></li>
+            <li><a href="users/logout">Logout</a></li>
             <li><a href="/games">Games</a></li>
             <li><a href="/games/new">Create Game</a></li>
           <% end %>
