@@ -4,11 +4,7 @@ class ApplicationController < Sinatra::Base
 
   configure do
     enable :sessions
-    set :sessions, key: 'N&wedhSDF',
-        domain: "localhost",
-        path: '/',
-        expire_after: 14400,
-        secret: '*&(^B234'
+    set :session_secret, '*&(^B234'
     set :public_folder, 'public'
     set :views, 'app/views'
     set :session_secret, ENV['SESSION_SECRET']
