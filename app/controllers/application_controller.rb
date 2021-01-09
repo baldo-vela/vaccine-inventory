@@ -4,6 +4,11 @@ class ApplicationController < Sinatra::Base
 
   configure do
     enable :sessions
+    set :sessions, key: 'N&wedhSDF',
+        domain: "localhost",
+        path: '/',
+        expire_after: 14400,
+        secret: '*&(^B234'
     set :public_folder, 'public'
     set :views, 'app/views'
     set :session_secret, ENV['SESSION_SECRET']
@@ -26,7 +31,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_logged_in
       flash[:errors] = ["You are already logged in."] if is_logged_in?
-      redirect "/games" if is_logged_in?
+      redirect "/users" if is_logged_in?
     end
     
     def redirect_if_not_logged_in

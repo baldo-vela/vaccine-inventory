@@ -8,4 +8,4 @@ run ApplicationController
 use ImmunizationSitesController
 use AdminsController
 use VaccinesController
-use UserController
+use UsersController
