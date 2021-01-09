@@ -4,7 +4,12 @@ class ApplicationController < Sinatra::Base
 
   configure do
     enable :sessions
-    set :session_secret, '*&(^B234'
+    # Credit to https://stackoverflow.com/questions/18044627/sinatra-1-4-3-use-racksessioncookie-warning for the below setting
+    set :sessions, key: 'N&wedhSDF',
+        domain: "localhost",
+        path: '/',
+        expire_after: 14400,
+        secret: '*&(^B234'
     set :public_folder, 'public'
     set :views, 'app/views'
     set :session_secret, ENV['SESSION_SECRET']
