@@ -5,7 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-use ImmunizationSitesController
+use SessionsController
 use AdminsController
 use VaccinesController
 use UsersController
