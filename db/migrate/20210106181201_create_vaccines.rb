@@ -3,7 +3,7 @@ class CreateVaccines < ActiveRecord::Migration
     create_table :vaccines do |t|
       t.string :lot_no
       t.string :mfr
-      t.string :type
+      t.string :vac_type
       t.date :expir
       t.integer :quantity
 

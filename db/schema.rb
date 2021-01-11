@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20210107005224) do
     t.date     "birthdate"
     t.string   "email"
     t.string   "phone_one"
+    t.boolean  "admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 20210107005224) do
   create_table "vaccines", force: :cascade do |t|
     t.string   "lot_no"
     t.string   "mfr"
-    t.string   "type"
+    t.string   "vac_type"
     t.date     "expir"
     t.integer  "quantity"
     t.datetime "created_at", null: false

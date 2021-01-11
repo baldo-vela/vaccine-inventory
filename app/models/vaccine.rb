@@ -1,7 +1,7 @@
 class Vaccine < ActiveRecord::Base
     has_many :users
 
-    validates_presence_of :lot_no, :mfr, :expir
+    validates_presence_of :lot_no, :mfr, :vac_type, :expir
     validates_uniqueness_of :lot_no
 
     def self.search(query)
