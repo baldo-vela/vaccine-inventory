@@ -1,1 +1,33 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h2 class="indigo-text darken-3">Edit <%= @vaccine.lot_no %></h2>
+
+<form action="/vaccines/<%= @vaccine.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="input-field">
+    <input id="mfr" name="vaccine[mfr]" type="text" value="<%= @vaccine.mfr %>">
+    <label for="mfr">Manufacturer</label>
+  </div>
+  
+  <div class="input-field">
+    <input id="type" name="vaccine[type]" type="text" class="validate" value="<%= @vaccine.type %>">
+    <label for="type">Type</label>
+  </div>
+  
+  <div class="input-field">
+    <input type="text" class="datepicker" name="vaccine[expir]" id="expir" value="<%= @vaccine.expir %>">
+    <label for="expir">Expiration Date</label>
+  </div>
+  
+  <div class="input-field">
+    <input id="quantity" type="number" name="vaccine[quantity]" value="<%= @vaccine.quantity %>">
+    <label for="quantity">Quantity</label>
+  </div>
+  
+
+  <input type="submit" value="Update vaccine" class="btn indigo darken-3">
+</form>
+
+<script>
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
