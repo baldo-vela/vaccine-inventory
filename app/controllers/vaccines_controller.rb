@@ -1,4 +1,4 @@
-class VaccineController < ApplicationController
+class VaccinesController < ApplicationController
   get '/vaccines' do
     redirect_if_not_logged_in
     if params[:query] # only exist if search is filled out
