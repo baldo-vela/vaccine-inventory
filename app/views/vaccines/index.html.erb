@@ -12,20 +12,20 @@
 <form action="/vaccines" method="get">
   <div class="input-field">
     <select name="filter">
-      <option value="" disabled selected>Filter By Genre</option>
-      <% Vaccine.all_genres.each do |genre| %>
-        <option value="<%= genre %>"><%= genre %></option>
+      <option value="" disabled selected>Filter By Manufacturer</option>
+      <% Vaccine.all_mfr.each do |mfr| %>
+        <option value="<%= mfr %>"><%= mfr %></option>
       <% end %>
     </select>
   </div>
   <input type="submit" value="Filter" class="btn indigo darken-3">
 </form>
 
-<p>Recently Viewed: <%= @Vaccine ? @Vaccine.title : "Haven't viewed any vaccines." %></p>
+<p>Recently Viewed: <%= @vaccine ? @vaccine.title : "Haven't viewed any vaccines." %></p>
 
 <ul>
-  <% @vaccines.each do |Vaccine| %>
-    <li><a href="/vaccines/<%= Vaccine.id %>"><%= Vaccine.lot_no %></a></li>
+  <% @vaccines.each do |vaccine| %>
+    <li><a href="/vaccines/<%= vaccine.id %>"><%= vaccine.lot_no %></a></li>
   <% end %>
 </ul>
 

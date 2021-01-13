@@ -1,1 +1,48 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h2 class="indigo-text darken-3">Recieve new vaccine</h2>
+
+<form action="/vaccines" method="post">
+  <div class="input-field">
+    <input id="lot_no" name="vaccine[lot_no]" type="text" class="validate">
+    <label for="title">Title</label>
+  </div>
+  <div class="input-field">
+    <input type="text" class="datepicker" name="vaccine[release_date]" id="release_date">
+    <label for="release_date">Release Date</label>
+  </div>
+  <div class="input-field">
+    <input id="genre" name="vaccine[genre]" type="text" class="validate">
+    <label for="genre">Genre</label>
+  </div>
+  <div class="input-field">
+    <input id="image" name="vaccine[image_url]" type="text" class="validate">
+    <label for="image">Image</label>
+  </div>
+
+  <input type="submit" value="Create vaccine" class="btn indigo darken-3">
+</form>
+<h3 class="indigo-text darken-3">Add vaccine</h3>
+
+<form action="/vaccines/add" method="post">
+  <div class="input-field">
+    <select name="vaccine[id]">
+      <option value="" disabled selected>Select vaccine To Add</option>
+      <% vaccine.all.each do |vaccine| %>
+        <option value="<%= vaccine.id %>"><%= vaccine.title %></option>
+      <% end %>
+    </select>
+    <label>vaccines</label>
+  </div>
+
+  <input type="submit" value="Add" class="btn green darken-3">
+</form>
+
+
+<script>
+  // this is a javascript comment.
+
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+    $('select').formSelect();
+  });
+</script>
