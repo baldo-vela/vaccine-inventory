@@ -70,7 +70,6 @@ class VaccinesController < ApplicationController
   delete '/vaccines/:id' do
     find_vaccine
     redirect_if_vaccine_not_found
-    redirect_if_not_owner
     @vaccine.destroy
     redirect "/vaccines"
   end
@@ -84,7 +83,4 @@ class VaccinesController < ApplicationController
     redirect "/vaccines" unless @vaccine
   end
 
-  def redirect_if_not_owner
-    redirect "/vaccines" unless @vaccine.user == current_user
-  end
 end
