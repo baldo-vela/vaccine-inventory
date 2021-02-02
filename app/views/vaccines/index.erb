@@ -1,3 +1,11 @@
+<%# Replace this blurb with style sheet %>
+<style>
+    .tab {
+      display: inline-block;
+      margin-left: 40px;
+    }
+</style>
+
 <h3 class="indigo-text text-darken-3">Vaccine List</h3>
 
 <form action="/vaccines" method="get">
@@ -16,8 +24,6 @@
       <% Vaccine.all_mfr.each do |mfr| %>
         <option value="<%= mfr %>"><%= mfr %></option>
       <% end %>
-      
-      
     </select>
   </div>
   <input type="submit" value="Filter" class="btn indigo darken-3">
@@ -30,7 +36,8 @@
 <h4> Vaccines Sorted by Lot Number</h4>
 <ul>
   <% @vaccines.sort.each do |vaccine| %>
-    <li><a href="/vaccines/<%= vaccine.id %>"><%= vaccine.lot_no %></a></li>
+  <%# ID \t Type \t Manufacturer \t Expiration Date %>
+    <li><a href="/vaccines/<%= vaccine.id %>"><%= vaccine.lot_no %></a><span class="tab"><%=vaccine.vac_type%><span class="tab"><%= vaccine.mfr%><span class="tab"><%=vaccine.expir%></li>
   <% end %>
 </ul>
 
