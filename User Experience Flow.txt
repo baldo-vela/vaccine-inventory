@@ -1,0 +1,4 @@
+As a user I am incharge of inventory for a vaccination site. Colleagues and I use this system to keep track of all availible vaccines.
+
+Users can create new lots of vaccines.
+Users can edit existing lots of vaccines.

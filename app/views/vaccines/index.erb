@@ -16,15 +16,20 @@
       <% Vaccine.all_mfr.each do |mfr| %>
         <option value="<%= mfr %>"><%= mfr %></option>
       <% end %>
+      
+      
     </select>
   </div>
   <input type="submit" value="Filter" class="btn indigo darken-3">
 </form>
 
+
+
 <p>Recently Viewed: <%= @vaccine ? @vaccine.title : "Haven't viewed any vaccines." %></p>
 
+<h4> Vaccines Sorted by Lot Number</h4>
 <ul>
-  <% @vaccines.each do |vaccine| %>
+  <% @vaccines.sort.each do |vaccine| %>
     <li><a href="/vaccines/<%= vaccine.id %>"><%= vaccine.lot_no %></a></li>
   <% end %>
 </ul>
