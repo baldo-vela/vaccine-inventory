@@ -21,7 +21,7 @@
   <body>
     <nav class="indigo darken-3">
       <div class="nav-wrapper container">
-        <a href="/" class="brand-logo">COVID-19 Vaccinations</a>
+        <a href="/" class="brand-logo">VIMS</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if !is_logged_in? %>
             <li><a href="/login">Login</a></li>
@@ -29,7 +29,7 @@
           <% else %>
             <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
             <li><a href="users/logout">Logout</a></li>
-            <li><a href="/vaccines">Vaccine Inventory</a></li>
+            <li><a href="/vaccines"> Inventory</a></li>
             <li><a href="/vaccines/new">New</a></li>
           <% end %>
         </ul>

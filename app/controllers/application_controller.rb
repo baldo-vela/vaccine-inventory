@@ -5,12 +5,7 @@ class ApplicationController < Sinatra::Base
   configure do
     enable :sessions
     # Credit to https://stackoverflow.com/questions/18044627/sinatra-1-4-3-use-racksessioncookie-warning for the below setting
-    set :sessions, key: 'N&wedhSDF',
-        domain: "localhost",
-        path: '/',
-        expire_after: 14400,
-        secret: '*&(^B234'
-        
+ 
     set :public_folder, 'public'
     set :views, 'app/views'
     set :session_secret, ENV['SESSION_SECRET']
@@ -32,13 +27,15 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_logged_in
-      flash[:errors] = ["You are already logged in."] if is_logged_in?
-      redirect "/users" if is_logged_in?
+      if is_logged_in?
+        flash[:errors] = ["You are already logged in."] #if is_logged_in?
+        redirect "/users" #if is_logged_in?
+      end
     end
     
     def redirect_if_not_logged_in
-      flash[:errors] = ["You must be logged in."] unless is_logged_in?
-      redirect "/login" unless is_logged_in?
+      flash[:errors] = ["You must be logged in."] #unless is_logged_in?
+      redirect "/login" #unless is_logged_in?
     end
   end
 

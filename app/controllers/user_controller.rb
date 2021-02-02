@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   # GET: /users/5/edit
   get "/users/:id/edit" do
+    find_user
     erb :'/users/edit'
   end
 

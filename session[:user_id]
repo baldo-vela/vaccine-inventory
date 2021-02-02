@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/kosh/Flatiron-Lessons/SQL-Phase-2/vacsched/app/controllers/vaccines_controller.rb:18 self.GET /vaccines/new:
+
+    [1;34m13[0m:     @vaccine = vaccine.find_by_id(session[[33m:vaccine_id[0m])
+    [1;34m14[0m:     erb [33m:[1;33m'[0m[33mvaccines/index[1;33m'[0m[33m[0m
+    [1;34m15[0m:   [32mend[0m
+    [1;34m16[0m: 
+    [1;34m17[0m:   get [31m[1;31m'[0m[31m/vaccines/new[1;31m'[0m[31m[0m [32mdo[0m
+ => [1;34m18[0m:     binding.pry
+    [1;34m19[0m:     redirect_if_not_logged_in
+    [1;34m20[0m:     erb [33m:[1;33m'[0m[33mvaccines/new[1;33m'[0m[33m[0m
+    [1;34m21[0m:   [32mend[0m
+    [1;34m22[0m:   
+    [1;34m23[0m:   get [31m[1;31m'[0m[31m/vaccines/:id[1;31m'[0m[31m[0m [32mdo[0m
+
