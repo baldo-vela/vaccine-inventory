@@ -6,3 +6,8 @@
   <tr><th>Quantity:</th>    <td><%= @vaccine.quantity%></td></tr>
   </table>
 
+<form action="/vaccines/<%= @vaccine.id %>" method="post">
+  <a href="/vaccines/<%= @vaccine.id %>/edit" class="btn-small">Edit</a>  
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete vaccine" class="btn-small red white-text">
+</form>
