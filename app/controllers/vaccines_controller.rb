@@ -19,14 +19,14 @@ class VaccinesController < ApplicationController
   end
   
   get '/vaccines/:id' do
-    redirect_if_not_logged_in
+    # redirect_if_not_logged_in
     find_vaccine
     redirect_if_vaccine_not_found
     erb :'/vaccines/show'
   end
   
   get '/vaccines/:id/edit' do
-    redirect_if_not_logged_in
+    # redirect_if_not_logged_in
     find_vaccine
     redirect_if_vaccine_not_found
     erb :'/vaccines/edit'
@@ -61,7 +61,7 @@ class VaccinesController < ApplicationController
   
   private
   def find_vaccine
-    @vaccine = vaccine.find_by_id(params[:id])
+    @vaccine = Vaccine.find_by_id(params[:id])
   end
   
   def redirect_if_vaccine_not_found

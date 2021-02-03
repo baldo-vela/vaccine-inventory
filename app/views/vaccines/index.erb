@@ -34,12 +34,24 @@
 <p>Recently Viewed: <%= @vaccine ? @vaccine.title : "Haven't viewed any vaccines." %></p>
 
 <h4> Vaccines Sorted by Lot Number</h4>
-<ul>
+
+<table>
+  <th>Lot#</th>
+  <th>Type</th>
+  <th>Manufacturer</th>
+  <th>Expiration</th>
+  <th>Quantity</th>
   <% @vaccines.sort.each do |vaccine| %>
   <%# ID \t Type \t Manufacturer \t Expiration Date %>
-    <li><a href="/vaccines/<%= vaccine.id %>"><%= vaccine.lot_no %></a><span class="tab"><%=vaccine.vac_type%><span class="tab"><%= vaccine.mfr%><span class="tab"><%=vaccine.expir%></li>
+    <tr> 
+     <td><a href="/vaccines/<%= vaccine.id %>"><%= vaccine.lot_no %></a></td>
+     <td><%=vaccine.vac_type%></td>
+     <td><%=vaccine.mfr%></td>
+     <td><%=vaccine.expir%></td>
+     <td><%=vaccine.quantity%></td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 <script>
   $(document).ready(function(){

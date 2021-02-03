@@ -18,5 +18,11 @@ class Vaccine < ActiveRecord::Base
 
     def self.all_mfr
         self.pluck(:mfr).uniq
-    end 
+    end
+
+    def self.find_by_id(query)
+        self.find(query)
+    end
+    
+
 end
