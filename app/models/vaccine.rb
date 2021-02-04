@@ -23,6 +23,5 @@ class Vaccine < ActiveRecord::Base
     def self.find_by_id(query)
         self.find(query)
     end
-    
 
 end
