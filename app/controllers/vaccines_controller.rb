@@ -1,14 +1,15 @@
 class VaccinesController < ApplicationController
   get '/vaccines' do
-    # redirect_if_not_logged_in
-    if params[:query] # only exist if search is filled out
-      # search for vaccines based on query
-      @vaccines = Vaccine.search(params[:query])
- 
-    else # search is not filled out so show all vaccines
-       @vaccines = Vaccine.all
+    if params[:query]
+      # Work in progress
+      # @vaccines = Vaccine.search(:query)
+
+      @vaccines = Vaccine.all.sort
+    elsif params[:filter]
+      @vaccines = Vaccine.by_mfr(params[:filter])
+    else
+      @vaccines = Vaccine.all.sort
     end
-    @vaccine = Vaccine.find_by_id(session[:vaccine_id])
     erb :"/vaccines/index"
   end
 

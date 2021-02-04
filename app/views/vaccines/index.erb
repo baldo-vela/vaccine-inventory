@@ -4,10 +4,14 @@
       display: inline-block;
       margin-left: 40px;
     }
+    .div{
+      margin-bottom: 0px;
+    }
 </style>
 
 <h3 class="indigo-text text-darken-3">Vaccine List</h3>
 
+<%# WIP Search Function %>
 <form action="/vaccines" method="get">
   <div class="row" style="margin-bottom: 0;">
     <div class="col s5 input-field" style="margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0;">
@@ -17,12 +21,14 @@
   <input type="submit" value="Search" class="btn indigo darken-3">
 </form>
 
+
+<%# Filter %>
 <form action="/vaccines" method="get">
   <div class="input-field">
     <select name="filter">
       <option value="" disabled selected>Filter By Manufacturer</option>
       <% Vaccine.all_mfr.each do |mfr| %>
-        <option value="<%= mfr %>"><%= mfr %></option>
+       <option value="<%= mfr %>"><%= mfr %></option>
       <% end %>
     </select>
   </div>
@@ -31,7 +37,7 @@
 
 
 
-<p>Recently Viewed: <%= @vaccine ? @vaccine.title : "Haven't viewed any vaccines." %></p>
+<p>Recently Viewed: <%= @vaccine?@vaccine.lot_no : "Haven't viewed any vaccines." %></p>
 
 <h4> Vaccines Sorted by Lot Number</h4>
 

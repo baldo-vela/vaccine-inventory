@@ -5,14 +5,15 @@ class Vaccine < ActiveRecord::Base
     validates_uniqueness_of :lot_no
 
     def self.search(query)
-        where("title LIKE ?", "%#{query}%")
+        #WIP
+        where("content LIKE ?", "%#{query}%")
     end
 
     def self.sort
         order(lot_no: :asc)
     end
 
-    def self.by_mfr
+    def self.by_mfr(mfr)
         where(mfr: mfr)
     end
 

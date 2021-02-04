@@ -5,7 +5,4 @@ class User < ActiveRecord::Base
 
     validates :username, presence: true, uniqueness: true
 
-    def self.find_by_id(query)
-        self.find(query)
-    end
-end
+ end

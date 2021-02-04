@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   get '/users/:id' do
     find_user
+    puts @user
     erb :'/users/show'
   end
 
