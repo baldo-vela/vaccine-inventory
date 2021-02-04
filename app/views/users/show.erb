@@ -1,3 +1,9 @@
-<h3>Your Profile</h3>
-<%= @user.username %>
-
+<h3 class="indigo-text text-darken-3">Your Profile: <%= @user.username %></h3>
+<table>
+  <tr><th>First Name:</th>      <td><%= @user.first_name%></td></tr>
+  <tr><th>Last Name:</th>       <td><%= @user.last_name%></td></tr>
+  <tr><th>Birthdate:</th>       <td><%= @user.birthdate%></td></tr>
+  <tr><th>Phone:</th>           <td><%= @user.phone_one%></td></tr>
+  <tr><th>Account Created:</th> <td><%= @user.created_at%></td></tr>
+  <tr><th>Last Updated on:</th> <td><%= @user.updated_at%></td></tr>
+</table>
