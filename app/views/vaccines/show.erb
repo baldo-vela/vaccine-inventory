@@ -1,11 +1,12 @@
 <h3 class="indigo-text text-darken-3">Inventory Item Lot#: <%= @vaccine.lot_no%></h3>
 <table>
-  <tr><th>Type:</th>        <td><%= @vaccine.vac_type%></td></tr>
-  <tr><th>Manufacturer:</th><td><%= @vaccine.mfr%></td></tr>
-  <tr><th>Expiration:</th>  <td><%= @vaccine.expir%></td></tr>
-  <tr><th>Quantity:</th>    <td><%= @vaccine.quantity%></td></tr>
-  <tr><th>Added to System:
-  </table>
+  <tr><th>Type:</th>            <td><%= @vaccine.vac_type%></td></tr>
+  <tr><th>Manufacturer:</th>    <td><%= @vaccine.mfr%></td></tr>
+  <tr><th>Expiration:</th>      <td><%= @vaccine.expir%></td></tr>
+  <tr><th>Quantity:</th>        <td><%= @vaccine.quantity%></td></tr>
+  <tr><th>Added to System:</th> <td><%= @vaccine.created_at%></td></tr>
+  <tr><th>Last Updated on:</th> <td><%= @vaccine.updated_at%></td></tr>
+</table>
 
 <form action="/vaccines/<%= @vaccine.id %>" method="post">
   <a href="/vaccines/<%= @vaccine.id %>/edit" class="btn-small">Edit</a>  
