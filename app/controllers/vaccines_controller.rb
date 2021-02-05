@@ -14,8 +14,7 @@ class VaccinesController < ApplicationController
   end
 
   get '/vaccines/new' do
-    binding.pry
-    redirect_if_not_logged_in
+    # redirect_if_not_logged_in
     erb :'/vaccines/new'
   end
   
@@ -34,7 +33,7 @@ class VaccinesController < ApplicationController
   end
   
   post '/vaccines' do
-    vaccine = vaccine.new(params[:vaccine])
+    vaccine = Vaccine.new(params[:vaccine])
     if vaccine.save
       redirect '/vaccines'
     else

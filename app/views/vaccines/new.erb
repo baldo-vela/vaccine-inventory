@@ -3,44 +3,34 @@
 <form action="/vaccines" method="post">
   <div class="input-field">
     <input id="lot_no" name="vaccine[lot_no]" type="text" class="validate">
-    <label for="title">Title</label>
+    <label for="lot_no">Lot Number</label>
   </div>
+  
   <div class="input-field">
-    <input type="text" class="datepicker" name="vaccine[release_date]" id="release_date">
-    <label for="release_date">Release Date</label>
+    <input id="mfr" name="vaccine[mfr]" type="text" class="validate">
+    <label for="mfr">Manufacturer</label>
   </div>
+  
   <div class="input-field">
-    <input id="genre" name="vaccine[genre]" type="text" class="validate">
-    <label for="genre">Genre</label>
+    <input id="type" name="vaccine[vac_type]" type="text" class="validate">
+    <label for="type">Type</label>
   </div>
+  
   <div class="input-field">
-    <input id="image" name="vaccine[image_url]" type="text" class="validate">
-    <label for="image">Image</label>
+    <input type="text" class="datepicker" name="vaccine[expir]" id="expir" class="validate">
+    <label for="expir">Expiration Date</label>
+  </div>
+  
+  <div class="input-field">
+    <input id="quantity" type="number" name="vaccine[quantity]" class="validate">
+    <label for="quantity">Quantity</label>
   </div>
 
   <input type="submit" value="Create vaccine" class="btn indigo darken-3">
 </form>
-<h3 class="indigo-text darken-3">Add vaccine</h3>
-
-<form action="/vaccines/add" method="post">
-  <div class="input-field">
-    <select name="vaccine[id]">
-      <option value="" disabled selected>Select vaccine To Add</option>
-      <% vaccine.all.each do |vaccine| %>
-        <option value="<%= vaccine.id %>"><%= vaccine.title %></option>
-      <% end %>
-    </select>
-    <label>vaccines</label>
-  </div>
-
-  <input type="submit" value="Add" class="btn green darken-3">
-</form>
-
 
 <script>
   // this is a javascript comment.
-
-
   $(document).ready(function(){
     $('.datepicker').datepicker();
     $('select').formSelect();
