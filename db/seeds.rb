@@ -5,7 +5,7 @@ puts "#{Users.all.count} User Accounts Seeded"
 
 puts 'Begining Vaccine Seeding'
 # Refactored to use Date.parse('foo', "%y-%m-%d") to match formating of ISO 8601
-
+# Vaccine.create(lot_no: '00000', mfr: "Flatiron Labs", vac_type: 'Live-Attenuated', expir: Date.parse('2020-01-11', "%y-%m-%d"), added_by: Users.all.select(0))
 Vaccine.create(lot_no: '2725108225',     mfr: 'REMEDYREPACK INC.',                          vac_type: 'mRNA',   expir: Date.parse('2020-03-04', "%y-%m-%d"),     quantity: 423)
 Vaccine.create(lot_no: '7485611836',     mfr: 'Aidarex Pharmaceuticals LLC',                vac_type: 'mRNA',   expir: Date.parse('2020-09-04', "%y-%m-%d"),      quantity: 441)
 Vaccine.create(lot_no: '3954328372',     mfr: 'Preferred Pharmaceuticals, Inc.',            vac_type: 'mRNA',   expir: Date.parse('2020-09-06', "%y-%m-%d"),      quantity: 617)

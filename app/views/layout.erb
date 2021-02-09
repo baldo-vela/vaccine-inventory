@@ -28,7 +28,7 @@
             <li><a href="/signup">Signup</a></li>
           <% else %>
             <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
-            <li><a href="users/logout">Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
             <li><a href="/vaccines"> Inventory</a></li>
             <li><a href="/vaccines/new">New</a></li>
           <% end %>
