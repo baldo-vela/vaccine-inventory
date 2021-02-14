@@ -35,6 +35,7 @@ class VaccinesController < ApplicationController
   end
   
   post '/vaccines' do
+    redirect_if_logged_in
     vaccine = Vaccine.new(params[:vaccine])
     if vaccine.save
       redirect '/vaccines'
@@ -45,8 +46,10 @@ class VaccinesController < ApplicationController
   end
   
   patch "/vaccines/:id" do
+    redirect_if_not_logged_in
     find_vaccine
     redirect_if_vaccine_not_found
+    redirect_if_not_owner
     if @vaccine.update(params[:vaccine])
       redirect "/vaccines/#{@vaccine.id}"
     else
@@ -55,10 +58,13 @@ class VaccinesController < ApplicationController
   end
   
   delete '/vaccines/:id' do
+    redirect_if_not_logged_in
     find_vaccine
     redirect_if_vaccine_not_found
+    redirect_if_not_owner
     @vaccine.destroy
     redirect "/vaccines"
+    flash[:error] == "You do not have permission to modify this Vaccine"
   end
   
   private
@@ -68,10 +74,10 @@ class VaccinesController < ApplicationController
   
   def redirect_if_vaccine_not_found
     redirect "/vaccines" unless @vaccine
+    flash[:error] == "Invalid Vaccine ID"
   end
 
   def redirect_if_not_owner
-    flash[:error] == "You do not have permission to modify this Vaccine"
     redirect "/vaccines" unless @vaccine.user == current_user
   end
 
