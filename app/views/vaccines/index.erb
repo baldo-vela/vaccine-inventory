@@ -45,7 +45,8 @@
   <th>Manufacturer</th>
   <th>Expiration</th>
   <th>Quantity</th>
-  <th>Added to Inventory by:</th>
+  <th>Added to Inventory on:</th>
+  <%# <th>Processed by User:</th> %>
   <% @vaccines.sort.each do |vaccine| %>
   <%# ID \t Type \t Manufacturer \t Expiration Date \t Quantity \t User%>
     <tr> 
@@ -54,7 +55,8 @@
      <td><%=vaccine.mfr%></td>
      <td><%=vaccine.expir%></td>
      <td><%=vaccine.quantity%></td>
-     <%# <td><%=vaccine.user.username></td> FINISH Later%>
+     <td><%=vaccine.created_at%></td>
+     <%# <td><%=User.find_by_id(1).username%> 
     </tr>
   <% end %>
 </table>
