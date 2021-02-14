@@ -1,5 +1,6 @@
 class VaccinesController < ApplicationController
   get '/vaccines' do
+    redirect_if_not_logged_in
     if params[:query]
       # Work in progress
       # @vaccines = Vaccine.search(:query)
@@ -14,21 +15,22 @@ class VaccinesController < ApplicationController
   end
 
   get '/vaccines/new' do
-    # redirect_if_not_logged_in
+    redirect_if_not_logged_in
     erb :'/vaccines/new'
   end
   
   get '/vaccines/:id' do
-    # redirect_if_not_logged_in
+    redirect_if_not_logged_in
     find_vaccine
     redirect_if_vaccine_not_found
     erb :'/vaccines/show'
   end
   
   get '/vaccines/:id/edit' do
-    # redirect_if_not_logged_in
+    redirect_if_not_logged_in
     find_vaccine
     redirect_if_vaccine_not_found
+    redirect_if_not_owner
     erb :'/vaccines/edit'
   end
   
@@ -66,6 +68,11 @@ class VaccinesController < ApplicationController
   
   def redirect_if_vaccine_not_found
     redirect "/vaccines" unless @vaccine
+  end
+
+  def redirect_if_not_owner
+    flash[:error] == "You do not have permission to modify this Vaccine"
+    redirect "/vaccines" unless @vaccine.user == current_user
   end
 
 end

@@ -5,6 +5,7 @@
   <tr><th>Expiration:</th>      <td><%= @vaccine.expir%></td></tr>
   <tr><th>Quantity:</th>        <td><%= @vaccine.quantity%></td></tr>
   <tr><th>Added to System:</th> <td><%= @vaccine.created_at%></td></tr>
+  <tr><th>Assigned to System By:</th> <td><%= User.find_by_id(@vaccine.user_id).username%></td></tr>
   <tr><th>Last Updated on:</th> <td><%= @vaccine.updated_at%></td></tr>
 </table>
 

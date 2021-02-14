@@ -35,8 +35,6 @@
   <input type="submit" value="Filter" class="btn indigo darken-3">
 </form>
 
-
-
 <p>Recently Viewed: <%= @vaccine?@vaccine.lot_no : "Haven't viewed any vaccines." %></p>
 
 <h4> Vaccines Sorted by Lot Number</h4>
@@ -47,14 +45,16 @@
   <th>Manufacturer</th>
   <th>Expiration</th>
   <th>Quantity</th>
+  <th>Added to Inventory by:</th>
   <% @vaccines.sort.each do |vaccine| %>
-  <%# ID \t Type \t Manufacturer \t Expiration Date %>
+  <%# ID \t Type \t Manufacturer \t Expiration Date \t Quantity \t User%>
     <tr> 
      <td><a href="/vaccines/<%= vaccine.id %>"><%= vaccine.lot_no %></a></td>
      <td><%=vaccine.vac_type%></td>
      <td><%=vaccine.mfr%></td>
      <td><%=vaccine.expir%></td>
      <td><%=vaccine.quantity%></td>
+     <%# <td><%=vaccine.user.username></td> FINISH Later%>
     </tr>
   <% end %>
 </table>

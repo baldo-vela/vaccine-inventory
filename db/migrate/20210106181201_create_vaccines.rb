@@ -1,6 +1,7 @@
 class CreateVaccines < ActiveRecord::Migration
   def change
     create_table :vaccines do |t|
+      t.belongs_to :user
       t.string :lot_no
       t.string :mfr
       t.string :vac_type

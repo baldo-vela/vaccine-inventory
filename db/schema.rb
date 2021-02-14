@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20210106181201) do
   end
 
   create_table "vaccines", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "lot_no"
     t.string   "mfr"
     t.string   "vac_type"

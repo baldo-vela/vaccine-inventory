@@ -1,5 +1,5 @@
 class Vaccine < ActiveRecord::Base
-    has_many :users
+    belongs_to :user
 
     validates_presence_of :lot_no, :mfr, :vac_type, :expir
     validates_uniqueness_of :lot_no
@@ -12,6 +12,10 @@ class Vaccine < ActiveRecord::Base
     def self.sort
         order(lot_no: :asc)
     end
+
+    # def self.quant_sort
+    #     order(quantity: :asc)
+    # end
 
     def self.by_mfr(mfr)
         where(mfr: mfr)

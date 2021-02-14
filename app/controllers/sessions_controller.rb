@@ -21,16 +21,15 @@ class SessionsController < ApplicationController
 
   post '/login' do
     # we should see if user exist
-    # user = User.find_by_username(params[:user][:username])
+     user = User.find_by_username(params[:user][:username])
 
     # if the user exist we should make sure they are using the correct password (authenticate them)
-    # if user && user.authenticate(params[:user][:password])
-      session[:user_id] = 1
-      # binding.pry
+     if user && user.authenticate(params[:user][:password])
+      session[:user_id] = user.id
       redirect "/vaccines"
-    # else
-    #  redirect "/login"
-    # end
+     else
+      redirect "/login"
+     end
   end
 
   get '/logout' do
